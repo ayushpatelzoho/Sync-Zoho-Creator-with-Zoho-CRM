@@ -1,0 +1,18 @@
+leadMap = Map();
+leadMap.put("Last_Name",input.Last_Name);
+leadMap.put("First_Name",input.first_name);
+leadMap.put("Company",input.Company);
+leadMap.put("Email",input.email);
+leadMap.put("Phone",input.phone_number);
+leadMap.put("Creator_Lead_Id",input.ID.toText());
+// Insert the record into CRM
+createResponse = zoho.crm.createRecord("Leads",leadMap,Map(),"zoho_oauth_connection");
+// info createResponse;
+if(createResponse.containKey("id"))
+{
+	dataMap = Map();
+	dataMap.put("CRM_Lead_Id",createResponse.get("id"));
+	otherParams = Map();
+	response = zoho.creator.updateRecord("ayushpatelzoho","sync-with-crm","Leads_Report",input.ID,dataMap,otherParams,"zoho_oauth_connection");
+	// 	info response ;
+}
