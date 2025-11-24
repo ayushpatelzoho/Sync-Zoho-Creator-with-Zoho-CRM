@@ -1,0 +1,9 @@
+mp = Map();
+mp.put("First_Name",input.first_name);
+mp.put("Last_Name",input.Last_Name);
+mp.put("Email",input.email);
+mp.put("Phone",input.phone_number);
+mp.put("Company",input.Company);
+// info mp;
+res = zoho.crm.updateRecord("Leads",input.CRM_Lead_Id.toLong(),mp,Map(),"zoho_oauth_connection");
+// info res;
