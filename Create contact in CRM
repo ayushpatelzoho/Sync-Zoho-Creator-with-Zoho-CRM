@@ -1,0 +1,17 @@
+contactMap = Map();
+contactMap.put("Last_Name",input.Last_Name);
+contactMap.put("First_Name",input.First_Name);
+contactMap.put("Email",input.Email);
+contactMap.put("Phone",input.Phone_Number);
+contactMap.put("Creator_Contact_Id",input.ID.toText());
+// 
+createResponse = zoho.crm.createRecord("Contacts",contactMap,Map(),"zoho_oauth_connection");
+// info createResponse;
+if(createResponse.containKey("id"))
+{
+	dataMap = Map();
+	dataMap.put("CRM_Contact_Id",createResponse.get("id"));
+	otherParams = Map();
+	response = zoho.creator.updateRecord("ayushpatelzoho","sync-with-crm","All_Contacts",input.ID,dataMap,otherParams,"zoho_oauth_connection");
+	// 	info response ;
+}
