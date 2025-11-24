@@ -1,0 +1,17 @@
+accMap = Map();
+accMap.put("Account_Name",input.account_name);
+accMap.put("Phone",input.phone);
+accMap.put("Account_Site",input.Account_Site);
+accMap.put("Rating",input.Rating);
+accMap.put("Creator_Account_Id",input.ID.toText());
+// Insert the record into CRM
+createResponse = zoho.crm.createRecord("Accounts",accMap,Map(),"zoho_oauth_connection");
+// info createResponse;
+if(createResponse.containKey("id"))
+{
+	dataMap = Map();
+	dataMap.put("CRM_Account_Id",createResponse.get("id"));
+	otherParams = Map();
+	response = zoho.creator.updateRecord("ayushpatelzoho","sync-with-crm","All_Accounts",input.ID,dataMap,otherParams,"zoho_oauth_connection");
+	// 		info response ;
+}
