@@ -1,0 +1,10 @@
+if(CRM_Contact_Id != null && CRM_Contact_Id != "")
+{
+	response = invokeurl
+	[
+		url :"https://www.zohoapis.in/crm/v8/Contacts?ids=" + input.CRM_Contact_Id + "&wf_trigger=false"
+		type :DELETE
+		connection:"zoho_oauth_connection"
+	];
+	// 	info response;
+}
