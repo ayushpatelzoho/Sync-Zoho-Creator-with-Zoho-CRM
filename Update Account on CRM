@@ -1,0 +1,8 @@
+mp = Map();
+mp.put("Account_Name",input.account_name);
+mp.put("Account_Site",input.Account_Site);
+mp.put("Rating",input.Rating);
+mp.put("Phone",input.phone);
+// info mp;
+res = zoho.crm.updateRecord("Accounts",input.CRM_Account_Id.toLong(),mp,Map(),"zoho_oauth_connection");
+// info res;
